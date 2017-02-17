@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F59125C51E576E03003A1A32 /* spa.c in Sources */ = {isa = PBXBuildFile; fileRef = F59125C31E576E03003A1A32 /* spa.c */; };
+		F59125CF1E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m in Sources */ = {isa = PBXBuildFile; fileRef = F59125C71E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m */; };
+		F59125D01E576E11003A1A32 /* PSAOCJulianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59125C91E576E11003A1A32 /* PSAOCJulianDate.m */; };
+		F59125D11E576E11003A1A32 /* PSAOCPSA.m in Sources */ = {isa = PBXBuildFile; fileRef = F59125CB1E576E11003A1A32 /* PSAOCPSA.m */; };
+		F59125D21E576E11003A1A32 /* PSAOCSPA.m in Sources */ = {isa = PBXBuildFile; fileRef = F59125CD1E576E11003A1A32 /* PSAOCSPA.m */; };
 		FAA1E51F18A0335C00E90412 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA1E51E18A0335C00E90412 /* Foundation.framework */; };
 		FAA1E52318A0335C00E90412 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA1E52218A0335C00E90412 /* UIKit.framework */; };
 		FAA1E52918A0335C00E90412 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA1E52718A0335C00E90412 /* InfoPlist.strings */; };
@@ -38,6 +43,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F59125C31E576E03003A1A32 /* spa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spa.c; sourceTree = "<group>"; };
+		F59125C41E576E03003A1A32 /* spa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spa.h; sourceTree = "<group>"; };
+		F59125C61E576E11003A1A32 /* PSAOCAzimuthZenithAngle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAOCAzimuthZenithAngle.h; sourceTree = "<group>"; };
+		F59125C71E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PSAOCAzimuthZenithAngle.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F59125C81E576E11003A1A32 /* PSAOCJulianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAOCJulianDate.h; sourceTree = "<group>"; };
+		F59125C91E576E11003A1A32 /* PSAOCJulianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PSAOCJulianDate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F59125CA1E576E11003A1A32 /* PSAOCPSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAOCPSA.h; sourceTree = "<group>"; };
+		F59125CB1E576E11003A1A32 /* PSAOCPSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAOCPSA.m; sourceTree = "<group>"; };
+		F59125CC1E576E11003A1A32 /* PSAOCSPA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAOCSPA.h; sourceTree = "<group>"; };
+		F59125CD1E576E11003A1A32 /* PSAOCSPA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAOCSPA.m; sourceTree = "<group>"; };
+		F59125CE1E576E11003A1A32 /* PSAOCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAOCHeader.h; sourceTree = "<group>"; };
 		FAA1E51B18A0335C00E90412 /* Sun Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sun Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1E51E18A0335C00E90412 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FAA1E52018A0335C00E90412 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,6 +108,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F59125C11E576DBA003A1A32 /* Position Sun Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				F59125C61E576E11003A1A32 /* PSAOCAzimuthZenithAngle.h */,
+				F59125C71E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m */,
+				F59125C81E576E11003A1A32 /* PSAOCJulianDate.h */,
+				F59125C91E576E11003A1A32 /* PSAOCJulianDate.m */,
+				F59125CA1E576E11003A1A32 /* PSAOCPSA.h */,
+				F59125CB1E576E11003A1A32 /* PSAOCPSA.m */,
+				F59125CC1E576E11003A1A32 /* PSAOCSPA.h */,
+				F59125CD1E576E11003A1A32 /* PSAOCSPA.m */,
+				F59125CE1E576E11003A1A32 /* PSAOCHeader.h */,
+				F59125C21E576E03003A1A32 /* c-sources */,
+			);
+			name = "Position Sun Algorithm";
+			sourceTree = "<group>";
+		};
+		F59125C21E576E03003A1A32 /* c-sources */ = {
+			isa = PBXGroup;
+			children = (
+				F59125C31E576E03003A1A32 /* spa.c */,
+				F59125C41E576E03003A1A32 /* spa.h */,
+			);
+			path = "c-sources";
+			sourceTree = "<group>";
+		};
 		FA6DBBB418F1F246003A2FA1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +178,14 @@
 		FAA1E52418A0335C00E90412 /* Sun Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				FA6DBBB418F1F246003A2FA1 /* Views */,
-				FAA1E55F18A0357900E90412 /* Tools */,
-				FAA1E54D18A0336E00E90412 /* View Controllers */,
 				FAA1E52D18A0335C00E90412 /* BRAppDelegate.h */,
 				FAA1E52E18A0335C00E90412 /* BRAppDelegate.m */,
 				FAA1E53018A0335C00E90412 /* Images.xcassets */,
+				F59125C11E576DBA003A1A32 /* Position Sun Algorithm */,
 				FAA1E52518A0335C00E90412 /* Supporting Files */,
+				FAA1E55F18A0357900E90412 /* Tools */,
+				FAA1E54D18A0336E00E90412 /* View Controllers */,
+				FA6DBBB418F1F246003A2FA1 /* Views */,
 			);
 			path = "Sun Tracker";
 			sourceTree = "<group>";
@@ -252,6 +295,9 @@
 				CLASSPREFIX = BR;
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
+					FAA1E51A18A0335C00E90412 = {
+						DevelopmentTeam = TYZGT3Y44Y;
+					};
 					FAA1E53518A0335C00E90412 = {
 						TestTargetID = FAA1E51A18A0335C00E90412;
 					};
@@ -306,6 +352,11 @@
 				FAA1E55818A033CF00E90412 /* BRSunTrackerView.m in Sources */,
 				FAA1E55418A033AF00E90412 /* BRSunTrackerViewController.m in Sources */,
 				FAA1E56218A0358600E90412 /* BRGeometry.m in Sources */,
+				F59125D11E576E11003A1A32 /* PSAOCPSA.m in Sources */,
+				F59125D21E576E11003A1A32 /* PSAOCSPA.m in Sources */,
+				F59125D01E576E11003A1A32 /* PSAOCJulianDate.m in Sources */,
+				F59125CF1E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m in Sources */,
+				F59125C51E576E03003A1A32 /* spa.c in Sources */,
 				FAA1E52F18A0335C00E90412 /* BRAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +474,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = TYZGT3Y44Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sun Tracker/Sun Tracker-Prefix.pch";
 				INFOPLIST_FILE = "Sun Tracker/Sun Tracker-Info.plist";
@@ -436,6 +492,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = TYZGT3Y44Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sun Tracker/Sun Tracker-Prefix.pch";
 				INFOPLIST_FILE = "Sun Tracker/Sun Tracker-Info.plist";

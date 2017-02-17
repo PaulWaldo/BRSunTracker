@@ -10,6 +10,8 @@
 #import <CoreMotion/CoreMotion.h>       // Gyroscope access
 #import <CoreLocation/CoreLocation.h>   // GPS Location access
 
+#import "PSAOCHeader.h"
+
 @interface BRSunTracker () <CLLocationManagerDelegate> {
     vec4f_t _sunPositionVector;
     mat4f_t _projectionTransform;
@@ -241,93 +243,15 @@
 }
 
 - (BRSunSphericalPosition)sunPositionForCoordinate:(CLLocationCoordinate2D)coordinate{
-    
-    // The algorithm below is based on the PSA algorithm
-    // From http://www.psa.es/sdg/sunpos.htm
-    
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:[NSDate date]];
-    
-    // Main variables
-	double dElapsedJulianDays;
-	double dDecimalHours;
-	double dEclipticLongitude;
-	double dEclipticObliquity;
-	double dRightAscension;
-	double dDeclination;
-    
-	// Auxiliary variables
-	double dY;
-	double dX;
-    
-	// Calculate difference in days between the current Julian Day
-	// and JD 2451545.0, which is noon 1 January 2000 Universal Time
-    double dJulianDate;
-    long int liAux1;
-    long int liAux2;
-    
-    // Calculate time of the day in UT decimal hours
-    dDecimalHours = [components hour] + ([components minute] + [components second] / 60.0 ) / 60.0;
-    
-    // Calculate current Julian Day
-    liAux1 =([components month]-14)/12;
-    liAux2=(1461*([components year] + 4800 + liAux1))/4 + (367*([components month] - 2-12*liAux1))/12- (3*(([components year] + 4900 + liAux1)/100))/4+[components day]-32075;
-    dJulianDate=(double)(liAux2)-0.5+dDecimalHours/24.0;
-    
-    // Calculate difference between current Julian Day and JD 2451545.0
-    dElapsedJulianDays = dJulianDate-2451545.0;
-    
-	// Calculate ecliptic coordinates (ecliptic longitude and obliquity of the
-	// ecliptic in radians but without limiting the angle to be less than 2*Pi
-	// (i.e., the result may be greater than 2*Pi)
-    double dMeanLongitude;
-    double dMeanAnomaly;
-    double dOmega;
-    dOmega=2.1429-0.0010394594*dElapsedJulianDays;
-    dMeanLongitude = 4.8950630+ 0.017202791698*dElapsedJulianDays; // Radians
-    dMeanAnomaly = 6.2400600+ 0.0172019699*dElapsedJulianDays;
-    dEclipticLongitude = dMeanLongitude + 0.03341607*sin(dMeanAnomaly) + 0.00034894*sin(2*dMeanAnomaly)-0.0001134 -0.0000203*sin(dOmega);
-    dEclipticObliquity = 0.4090928 - 6.2140e-9*dElapsedJulianDays + 0.0000396*cos(dOmega);
-    
-	// Calculate celestial coordinates ( right ascension and declination ) in radians
-	// but without limiting the angle to be less than 2*Pi (i.e., the result may be
-	// greater than 2*Pi)
-    double dSin_EclipticLongitude;
-    dSin_EclipticLongitude= sin( dEclipticLongitude );
-    dY = cos( dEclipticObliquity ) * dSin_EclipticLongitude;
-    dX = cos( dEclipticLongitude );
-    dRightAscension = atan2( dY,dX );
-    if( dRightAscension < 0.0 ) dRightAscension = dRightAscension + (M_PI*2);
-    dDeclination = asin( sin( dEclipticObliquity )*dSin_EclipticLongitude );
-    
-	// Calculate local coordinates (azimuth and elevation angle) in degrees
-    double dGreenwichMeanSiderealTime;
-    double dLocalMeanSiderealTime;
-    double dLatitudeInRadians;
-    double dHourAngle;
-    double dCos_Latitude;
-    double dSin_Latitude;
-    double dCos_HourAngle;
-    double dParallax;
-    dGreenwichMeanSiderealTime = 6.6974243242 + 0.0657098283*dElapsedJulianDays + dDecimalHours;
-    dLocalMeanSiderealTime = (dGreenwichMeanSiderealTime*15 + coordinate.longitude)*(M_PI/180);
-    dHourAngle = dLocalMeanSiderealTime - dRightAscension;
-    dLatitudeInRadians = coordinate.latitude*(M_PI/180);
-    dCos_Latitude = cos(dLatitudeInRadians);
-    dSin_Latitude = sin(dLatitudeInRadians);
-    dCos_HourAngle= cos(dHourAngle);
-    
+    PSAOCAzimuthZenithAngle *result = [PSAOCPSA computeSolarPositionWithDate:[[NSDate alloc] init]
+                                                                    latitude:coordinate.latitude
+                                                                   longitude:coordinate.longitude];
     BRSunSphericalPosition sunCoordinates;
-    sunCoordinates.elevation = (acos( dCos_Latitude*dCos_HourAngle*cos(dDeclination) + sin( dDeclination )*dSin_Latitude));
-    dY = -sin(dHourAngle);
-    dX = tan(dDeclination)*dCos_Latitude - dSin_Latitude*dCos_HourAngle;
-    sunCoordinates.azimuth = atan2( dY, dX );
-    if ( sunCoordinates.azimuth < 0.0 ) sunCoordinates.azimuth = sunCoordinates.azimuth + (M_PI*2);
-    sunCoordinates.azimuth = sunCoordinates.azimuth/(M_PI/180);
-    // Parallax Correction
-    dParallax=(6371.01/149597890)*sin(sunCoordinates.elevation);
-    sunCoordinates.elevation = (sunCoordinates.elevation + dParallax)/(M_PI/180);
-    
+    sunCoordinates.azimuth = [result azimuth];
+    sunCoordinates.elevation = [result zenithAngle];
+
     return sunCoordinates;
+
 }
 
 @end
