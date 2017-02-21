@@ -18,6 +18,7 @@
 @property (strong, nonatomic)   AVCaptureSession                *captureSession;
 @property (strong, nonatomic)   AVCaptureVideoPreviewLayer      *captureVideoPreviewLayer;
 @property (strong, nonatomic)   UIView                          *videoImagePreview;
+@property (strong, nonatomic)   CAShapeLayer                    *testLayer;
 
 @end
 
@@ -82,6 +83,7 @@
     // (Hide it until we receive sun positions)
     _sunContainerView = [[UIView alloc] initWithFrame:self.bounds];
     [self addSubview:_sunContainerView];
+    //[self drawTestLayer];
     
     _defaultSunView = [[UIView alloc] init];
     [_defaultSunView setCenter:CGPointMake(CGRectGetMidX(_sunContainerView.bounds), CGRectGetMidY(_sunContainerView.bounds))];
@@ -96,6 +98,19 @@
     [_sunTracker setDelegate:self];
     _sunState = BRSunStateUnknown;
     [_sunContainerView setAlpha:0.0];
+}
+
+- (void) drawTestLayer {
+    if (!self.testLayer) {
+        self.testLayer = [[CAShapeLayer alloc] init];
+        [self.sunContainerView.layer addSublayer:self.testLayer];
+        CGRect rect = CGRectInset(self.sunContainerView.bounds, 20, 20); //4
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: rect]; //5
+        self.testLayer.path = path.CGPath; //6
+        self.testLayer.fillColor = [[UIColor blueColor] CGColor]; //7
+        self.testLayer.lineWidth = 10;
+    }
+
 }
 
 #pragma mark - BRSunTrackerDelegate method
