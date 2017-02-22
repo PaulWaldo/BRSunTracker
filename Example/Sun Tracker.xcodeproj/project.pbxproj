@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAE5A8561E5CE9A100A37BDB /* EDSunriseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE5A8531E5CE9A100A37BDB /* EDSunriseSet.m */; };
+		DAE5A8571E5CE9A100A37BDB /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAE5A8541E5CE9A100A37BDB /* license.txt */; };
+		DAE5A8581E5CE9A100A37BDB /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = DAE5A8551E5CE9A100A37BDB /* README.markdown */; };
+		DAE5A85B1E5CEB1600A37BDB /* PWAstronomicalPositions.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE5A85A1E5CEB1600A37BDB /* PWAstronomicalPositions.m */; };
 		F59125C51E576E03003A1A32 /* spa.c in Sources */ = {isa = PBXBuildFile; fileRef = F59125C31E576E03003A1A32 /* spa.c */; };
 		F59125CF1E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m in Sources */ = {isa = PBXBuildFile; fileRef = F59125C71E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m */; };
 		F59125D01E576E11003A1A32 /* PSAOCJulianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59125C91E576E11003A1A32 /* PSAOCJulianDate.m */; };
@@ -43,6 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DAE5A8521E5CE9A100A37BDB /* EDSunriseSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSunriseSet.h; sourceTree = "<group>"; };
+		DAE5A8531E5CE9A100A37BDB /* EDSunriseSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSunriseSet.m; sourceTree = "<group>"; };
+		DAE5A8541E5CE9A100A37BDB /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		DAE5A8551E5CE9A100A37BDB /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		DAE5A8591E5CEB1600A37BDB /* PWAstronomicalPositions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWAstronomicalPositions.h; sourceTree = "<group>"; };
+		DAE5A85A1E5CEB1600A37BDB /* PWAstronomicalPositions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWAstronomicalPositions.m; sourceTree = "<group>"; };
 		F59125C31E576E03003A1A32 /* spa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spa.c; sourceTree = "<group>"; };
 		F59125C41E576E03003A1A32 /* spa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spa.h; sourceTree = "<group>"; };
 		F59125C61E576E11003A1A32 /* PSAOCAzimuthZenithAngle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAOCAzimuthZenithAngle.h; sourceTree = "<group>"; };
@@ -108,6 +118,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DAE5A8511E5CE9A100A37BDB /* erndev-EDSunriseSet-029425b */ = {
+			isa = PBXGroup;
+			children = (
+				DAE5A8521E5CE9A100A37BDB /* EDSunriseSet.h */,
+				DAE5A8531E5CE9A100A37BDB /* EDSunriseSet.m */,
+				DAE5A8541E5CE9A100A37BDB /* license.txt */,
+				DAE5A8551E5CE9A100A37BDB /* README.markdown */,
+			);
+			path = "erndev-EDSunriseSet-029425b";
+			sourceTree = "<group>";
+		};
 		F59125C11E576DBA003A1A32 /* Position Sun Algorithm */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +202,7 @@
 				FAA1E52D18A0335C00E90412 /* BRAppDelegate.h */,
 				FAA1E52E18A0335C00E90412 /* BRAppDelegate.m */,
 				FAA1E53018A0335C00E90412 /* Images.xcassets */,
+				DAE5A8511E5CE9A100A37BDB /* erndev-EDSunriseSet-029425b */,
 				F59125C11E576DBA003A1A32 /* Position Sun Algorithm */,
 				FAA1E52518A0335C00E90412 /* Supporting Files */,
 				FAA1E55F18A0357900E90412 /* Tools */,
@@ -234,6 +256,8 @@
 			children = (
 				FAA1E55C18A0356600E90412 /* BRSunTracker.h */,
 				FAA1E55D18A0356600E90412 /* BRSunTracker.m */,
+				DAE5A8591E5CEB1600A37BDB /* PWAstronomicalPositions.h */,
+				DAE5A85A1E5CEB1600A37BDB /* PWAstronomicalPositions.m */,
 			);
 			name = "Sun Tracker";
 			sourceTree = "<group>";
@@ -326,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE5A8571E5CE9A100A37BDB /* license.txt in Resources */,
 				FAA1E52918A0335C00E90412 /* InfoPlist.strings in Resources */,
 				FAA1E53118A0335C00E90412 /* Images.xcassets in Resources */,
 				FAA1E55518A033AF00E90412 /* BRSunTrackerViewController.xib in Resources */,
@@ -353,11 +378,14 @@
 				FAA1E55418A033AF00E90412 /* BRSunTrackerViewController.m in Sources */,
 				FAA1E56218A0358600E90412 /* BRGeometry.m in Sources */,
 				F59125D11E576E11003A1A32 /* PSAOCPSA.m in Sources */,
+				DAE5A8581E5CE9A100A37BDB /* README.markdown in Sources */,
 				F59125D21E576E11003A1A32 /* PSAOCSPA.m in Sources */,
+				DAE5A8561E5CE9A100A37BDB /* EDSunriseSet.m in Sources */,
 				F59125D01E576E11003A1A32 /* PSAOCJulianDate.m in Sources */,
 				F59125CF1E576E11003A1A32 /* PSAOCAzimuthZenithAngle.m in Sources */,
 				F59125C51E576E03003A1A32 /* spa.c in Sources */,
 				FAA1E52F18A0335C00E90412 /* BRAppDelegate.m in Sources */,
+				DAE5A85B1E5CEB1600A37BDB /* PWAstronomicalPositions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
