@@ -9,6 +9,7 @@
 #import "BRSunTrackerView.h"
 #import "BRSunTracker.h"
 #import <AVFoundation/AVFoundation.h>
+#import "PWAstronomicalPositions.h"
 
 @interface BRSunTrackerView () <BRSunTrackerDelegate>
 
@@ -83,7 +84,7 @@
     // (Hide it until we receive sun positions)
     _sunContainerView = [[UIView alloc] initWithFrame:self.bounds];
     [self addSubview:_sunContainerView];
-    //[self drawTestLayer];
+    [self drawTestLayer];
     
     _defaultSunView = [[UIView alloc] init];
     [_defaultSunView setCenter:CGPointMake(CGRectGetMidX(_sunContainerView.bounds), CGRectGetMidY(_sunContainerView.bounds))];
@@ -102,13 +103,17 @@
 
 - (void) drawTestLayer {
     if (!self.testLayer) {
-        self.testLayer = [[CAShapeLayer alloc] init];
-        [self.sunContainerView.layer addSublayer:self.testLayer];
-        CGRect rect = CGRectInset(self.sunContainerView.bounds, 20, 20); //4
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: rect]; //5
-        self.testLayer.path = path.CGPath; //6
-        self.testLayer.fillColor = [[UIColor blueColor] CGColor]; //7
-        self.testLayer.lineWidth = 10;
+        NSArray <PWVector *> *vectors = [PWAstronomicalPositions createpositionsForDate:[[NSDate alloc] init]
+                                                                               location:self.sunTracker.location];
+        for (PWVector *vector in vectors) {
+            self.testLayer = [[CAShapeLayer alloc] init];
+            [self.sunContainerView.layer addSublayer:self.testLayer];
+            CGRect rect = CGRectInset(self.sunContainerView.bounds, 20, 20); //4
+            UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: rect]; //5
+            self.testLayer.path = path.CGPath; //6
+            self.testLayer.fillColor = [[UIColor blueColor] CGColor]; //7
+            self.testLayer.lineWidth = 10;
+        }
     }
 
 }

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @protocol BRSunTrackerDelegate <NSObject>
 
@@ -20,6 +21,7 @@
 
 @property (assign, nonatomic)   id<BRSunTrackerDelegate>    delegate;
 @property (assign, nonatomic)   CGSize                      viewSize;
+@property (strong, nonatomic)   CLLocation                  *location;
 
 - (instancetype)initWithViewSize:(CGSize)viewSize;
 - (void)stopServices;

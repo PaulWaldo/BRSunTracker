@@ -13,7 +13,10 @@
 
 @interface PWVector : NSObject
 
-@property (strong, nonatomic) NSArray <NSNumber *> *values;
+@property (strong, nonatomic) NSNumber *value0;
+@property (strong, nonatomic) NSNumber *value1;
+@property (strong, nonatomic) NSNumber *value2;
+@property (strong, nonatomic) NSNumber *value3;
 
 @end
 
